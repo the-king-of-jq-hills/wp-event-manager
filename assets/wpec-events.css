@@ -1,0 +1,87 @@
+/**
+ * Frontend Style For Event Calander
+ */
+
+.spacer-16 {
+    height: 16px;
+}
+.spacer-32 {
+    height: 32px;
+}
+
+.event-single h3 {
+    font-size: 2em;
+    margin-bottom: .1em;
+    color: #989898;
+}
+
+.event-single h1.entry-title {
+    font-size: 3.2em;
+    margin-bottom: 0em;
+    margin-top: 0em;
+    font-weight: 500;
+}
+
+.event-single .event-time-left {
+    font-size: 1.4em;
+    margin-bottom: 1.4em;
+    font-weight: 600;
+}
+.event-single .event-time-left .green-text {
+    color: #71b300;   
+}
+.event-single .event-time-left .red-text {
+    color: #b3009e;    
+}
+
+.event-single .entry-content {
+    margin: 0 0 1em 0;
+    font-size: 1.1em;
+}
+
+.event-meta {
+    display: flex;
+}
+.event-meta .event-meta-key {
+    font-weight: 500;
+    color: #242424;
+    flex-basis: 120px;
+}
+.event-meta .event-meta-value {
+    color: #484848;
+}
+
+ /* Aechive Style */
+.event-archive .entry-title {
+    font-size: 2.4em;
+    margin-bottom: .4em;
+    margin-top: 0em;
+    font-weight: 500;
+    text-transform: capitalize;   
+}
+.event-archive .entry-content {
+    margin: 0 0 0 0;
+    font-size: 1.1em;
+}
+.event-archive .event-item-meta {
+    display: block;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #cfcfcf;
+    display: flex;  
+}
+.event-archive .event-item-meta-fragment {
+    padding-right: 32px;
+}
+
+ul.event-archive-pagination {
+    padding-left:  0px;
+    display: block;
+    margin-bottom: 48px;
+}
+ul.event-archive-pagination li {
+    padding-left: 0px;
+    display: block;
+    float: left;
+    padding-right: 12px;;
+    padding-bottom: 16px;
+}
