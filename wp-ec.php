@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Loop Event Calander
+Plugin Name: WP Event Calander
 Plugin URI: https://wp-demos/wp-ec
 Description: Creates custom post type loop-events and meta boxes for the attributes
 Version: 1.0.0

@@ -217,8 +217,8 @@ if ( !class_exists('wpecImportEvents') ) :
             $message = esc_html__('Event Created : ', 'wp-ec') . esc_html($this->events_created);
             $message .= esc_html__('Event Updated : ', 'wp-ec') . esc_html($this->events_updated);
 
-            $to = sanitize_email('marsian.ncs@gmail.com');
-            $from = sanitize_email('report@example.com');
+            $to = sanitize_email('logging@agentur-loop.com');
+            $from = sanitize_email('report@agentur-loop.com');
             $subject = esc_html('Event Import Report');
             $headers = array('Content-Type: text/html; charset=UTF-8');
 
