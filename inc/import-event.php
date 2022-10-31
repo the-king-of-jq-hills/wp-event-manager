@@ -26,6 +26,7 @@ if ( !class_exists('wpecImportEvents') ) :
             $event_status = -1;
             $post_type = 'events';
             
+            // if called from admin option Panel via AJAX
             if( $this->cli_response != 2 )
             {
                 //check permission
@@ -41,7 +42,7 @@ if ( !class_exists('wpecImportEvents') ) :
                 }
             }
         
-            // Sanitize the contents
+            // Sanitize the contents/event attributes
             $event_id = sanitize_key($event->id);
            
             $event_title = $this->wpec_sanitize_text_field($event->title); 
@@ -99,6 +100,7 @@ if ( !class_exists('wpecImportEvents') ) :
                         'post_status' => 'publish',
                     )
                 );
+                // inserting/setting event term tags with correct taxonomy
                 wp_set_object_terms( $event_id, $event_tags, 'event-tag', true);
                 $this->events_created++;
         
@@ -125,6 +127,7 @@ if ( !class_exists('wpecImportEvents') ) :
                         'post_status' => 'publish',                                 
                     )
                 );
+                // inserting/setting event term tags with correct taxonomy
                 wp_set_object_terms( $event_id, $event_tags, 'event-tag', true);
                 $this->events_updated++;
 
@@ -138,6 +141,7 @@ if ( !class_exists('wpecImportEvents') ) :
             
         } 
 
+        //Fetch the JSON data
         function wpec_get_event_data( $cli_response ) {
             
             $this->cli_response = $cli_response;
@@ -169,7 +173,7 @@ if ( !class_exists('wpecImportEvents') ) :
                 }
               
             }
-            if( $this->cli_response == 2 )
+            if( $this->cli_response == 2 ) //CLI Response
             {
                 $this->cli_response = esc_html__('Event Created : ', 'wp-ec') . esc_html($this->events_created) . '  ';
                 $this->cli_response .= esc_html__('Event Updated : ', 'wp-ec') . esc_html($this->events_updated);
@@ -179,7 +183,7 @@ if ( !class_exists('wpecImportEvents') ) :
 
                 return $this->cli_response;
 
-            } else {
+            } else { //AJAX Response
                 echo '<h3>' .  esc_html__('Event Created : ', 'wp-ec') . esc_html($this->events_created) .'</h3>';
                 echo '<h3>' .  esc_html__('Event Updated : ', 'wp-ec') . esc_html($this->events_updated) . '</h3>';
             }
@@ -199,7 +203,7 @@ if ( !class_exists('wpecImportEvents') ) :
             return $value;
         } 
         
-        // Sanitize Array
+        // Sanitize string
         function wpec_sanitize_text_field( $field ) {
 
             if ( isset( $field ) ) {
@@ -236,7 +240,7 @@ if ( !class_exists('wpecImportEvents') ) :
     } //wpecImportEvents
 endif; 
 
-//import_events_json
+//import_events_json AJAX call response
 add_action( 'wp_ajax_wpec_import_events_json', 'wpec_import_events_json' );
 
 function wpec_import_events_json() {
