@@ -19,7 +19,7 @@ $wp_query = new WP_Query([
     'meta_key' 			=> 'event_time',
     'orderby' 			=> 'meta_value',
     'order' 			=> 'ASC',
-	'posts_per_page'    => 2,
+	'posts_per_page'    => 10,
 	'paged' 			=> $paged,
 ]);
 
