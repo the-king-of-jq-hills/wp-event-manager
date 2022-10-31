@@ -21,14 +21,4 @@ Custom CLI command to import event data - wp importevents
 Custom REST route - http://yoursite.com/wp-json/wpevents/v1/events
 
 
-== Estimated and tracked time ==
-
-The plugin (CPT, menus/options, meta-boxes) - 6 hours                       - Done
-import Data - 8 hours                                                       - Took aroond 12 hours
-Show Data - 4 hours                                                         - Took around 8 hours
-Export Data (Custom REST route) - 2 hours                                   - Took around 3 hours
-Styling - 1 hours                                                           - Done
-
-Total Estimated 21 hours                                                    - Took around 30 hours
-
 
