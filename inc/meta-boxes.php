@@ -75,7 +75,6 @@ function event_email_meta_box() {
 add_action( 'add_meta_boxes', 'event_email_meta_box' );
 	
 // Adding the text field in editor screen for email
-// WITHOUT THE SAVE FUNCTION
 function email_meta_box_callback( $post ) {
 	
 	wp_nonce_field( 'email_nonce', 'email_nonce' );	
@@ -84,6 +83,7 @@ function email_meta_box_callback( $post ) {
 	
 }
 
+// Save the email metabox value
 function save_email_meta_box_data( $post_id ) {
 
     // Check if our nonce is set.
@@ -140,6 +140,37 @@ function address_meta_box_callback( $post ) {
 
 }
 
+// Save the address metabox value
+function save_address_meta_box_data( $post_id ) {
+
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['address_nonce'] ) ) {
+        return;
+    }
+
+    // Verify that the nonce is valid.
+    if ( ! wp_verify_nonce( $_POST['address_nonce'], 'address_nonce' ) ) {
+        return;
+    }
+
+    // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    // Make sure that it is set.
+    if ( ! isset( $_POST['address'] ) ) {
+        return;
+    }
+
+    // Sanitize user input.
+    $my_data = sanitize_text_field( $_POST['address'] );
+
+    // Update the meta field in the database.
+    update_post_meta( $post_id, 'address', $my_data );
+}
+add_action( 'save_post', 'save_address_meta_box_data' );
+
 
 // Adding Metabox Latitude
 function event_latitude_meta_box() {
@@ -155,7 +186,6 @@ function event_latitude_meta_box() {
 add_action( 'add_meta_boxes', 'event_latitude_meta_box' );
 
 // Adding the text field in editor screen for latitude
-// WITHOUT THE SAVE FUNCTION
 function latitude_meta_box_callback( $post ) {
 
 	wp_nonce_field( 'latitude_nonce', 'latitude_nonce' );	
@@ -164,6 +194,36 @@ function latitude_meta_box_callback( $post ) {
 
 }
 
+// Save the latitude metabox value
+function save_latitude_meta_box_data( $post_id ) {
+
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['latitude_nonce'] ) ) {
+        return;
+    }
+
+    // Verify that the nonce is valid.
+    if ( ! wp_verify_nonce( $_POST['latitude_nonce'], 'latitude_nonce' ) ) {
+        return;
+    }
+
+    // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    // Make sure that it is set.
+    if ( ! isset( $_POST['latitude'] ) ) {
+        return;
+    }
+
+    // Sanitize user input.
+    $my_data = sanitize_text_field( $_POST['latitude'] );
+
+    // Update the meta field in the database.
+    update_post_meta( $post_id, 'latitude', $my_data );
+}
+add_action( 'save_post', 'save_latitude_meta_box_data' );
 
 // Adding Metabox Longitude
 function event_longitude_meta_box() {
@@ -187,6 +247,38 @@ function longitude_meta_box_callback( $post ) {
 	echo '<input type="text" style="width:100%" id="longitude" name="longitude" value="' . esc_attr( $value ) . '" />';
 
 }
+
+// Save the longitude metabox value
+function save_longitude_meta_box_data( $post_id ) {
+
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['longitude_nonce'] ) ) {
+        return;
+    }
+
+    // Verify that the nonce is valid.
+    if ( ! wp_verify_nonce( $_POST['longitude_nonce'], 'longitude_nonce' ) ) {
+        return;
+    }
+
+    // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    // Make sure that it is set.
+    if ( ! isset( $_POST['longitude'] ) ) {
+        return;
+    }
+
+    // Sanitize user input.
+    $my_data = sanitize_text_field( $_POST['longitude'] );
+
+    // Update the meta field in the database.
+    update_post_meta( $post_id, 'longitude', $my_data );
+}
+add_action( 'save_post', 'save_longitude_meta_box_data' );
+
 
 // Adding Metabox Event Time
 function event_time_meta_box() {
@@ -243,8 +335,6 @@ add_action( 'save_post', 'save_event_time_meta_box_data' );
 
 
 // Register The Meta Fields For REST API
-//, address, latitude, longitude, event_time
-
 add_action( 'rest_api_init', 'register_event_meta_fields');
 function register_event_meta_fields(){
 

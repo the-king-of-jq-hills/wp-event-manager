@@ -5,12 +5,13 @@
  jQuery(document).ready(function ($) {
 	'use strict';
 
-
     $('#import-events').on( 'click', function() {
 
-        $.post(ajaxurl, {'action': 'wpec_import_events_json'}, function(response) {
+        $('.event-spinner').css('display', 'block');
 
-            $("div.import-status").append("Import Status : " + response );
+        $.post(ajaxurl, {'action': 'wpec_import_events_json'}, function(response) {
+            $('.event-spinner').css('display', 'none');
+            $('div.import-status').html("Import Status : " + response );
 
         });
     });

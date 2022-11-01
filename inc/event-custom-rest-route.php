@@ -26,6 +26,7 @@ function wpec_event_list()
 
     $events_query = new WP_Query([
         'post_type' => 'events',
+        'posts_per_page' => -1,
     ]);
 
  

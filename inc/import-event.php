@@ -132,12 +132,14 @@ if ( !class_exists('wpecImportEvents') ) :
                 $this->events_updated++;
 
             }
-        
+            
+            /*
             if( $this->cli_response != 2 )
             {
                 // AJAX Response
                 echo $event_status;
-            }  
+            }
+            */ 
             
         } 
 

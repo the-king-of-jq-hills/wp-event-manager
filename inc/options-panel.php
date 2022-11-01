@@ -20,9 +20,13 @@ function wp_ec_import_jason(){
 
     $import_function = plugin_dir_path( __FILE__ ) . 'inc/import-event.php'
     ?>
-        <div class="wrapp">
+        <div class="wrapp" style="position: relative;">
             <h1><?php esc_html_e( 'Events Import', 'wp-ec' ) ?></h1>
             <p>&nbsp;</p>
+            <div class="event-spinner" style="width: 200px; display: none">
+            <?php esc_html_e( 'Please Wait! Processing ...', 'wp-ec' ) ?>
+                <div class="spinner is-active"></div>
+            </div>
             <div class="import-status">&nbsp;</div>
             <p>&nbsp;</p>
             <button id="import-events" name="importevents" type="submit" class="button button-primary button-hero import-events-button">

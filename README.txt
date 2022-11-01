@@ -1,6 +1,5 @@
 === WP Event Calander ===
 Contributors: marsian
-Donate link: http://www.templatesnext.org/
 Tags: events, calander, wp cli
 Requires at least: 5.0
 Tested up to: 6.0
