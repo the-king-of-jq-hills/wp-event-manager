@@ -106,7 +106,7 @@ if ( !class_exists('wpecImportEvents') ) :
         
             } else {
                 // Update The Event
-                $event_status = wp_insert_post(
+                $event_status = wp_update_post(
                     array(
                         'ID' => $event_id,
                         'post_name' => $slug,

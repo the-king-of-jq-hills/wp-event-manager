@@ -25,7 +25,7 @@ function wpec_import_events () {
 }
 
 //Creating custom CLI command
-function process_cli_command () {
+function wpec_process_cli_command () {
     WP_CLI::add_command( 'importevents', 'wpec_import_events' );
 }
-add_action( 'init', 'process_cli_command' );
+add_action( 'init', 'wpec_process_cli_command' );
