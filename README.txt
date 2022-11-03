@@ -1,4 +1,4 @@
-=== WP Event Calander ===
+=== WP Event Manager ===
 Contributors: marsian
 Tags: events, calander, wp cli
 Requires at least: 5.0
