@@ -78,7 +78,7 @@ function wp_ec_format_event_timestamp ( $tstamp )
     {
         $timeleft = '<span class="green-text">' . esc_html($days) . esc_html__(' days and ', 'wp-ec') . esc_html($hours) . esc_html(' hours remaining.', 'wp-ec') . '</span>';
     } else {
-        $timeleft = '<span class="red-text">' . esc_html__('Event is over by ', 'wp-ec') . esc_html($days) . esc_html(' days.', 'wp-ec') . '</span>';
+        $timeleft = '<span class="red-text">' . esc_html__('Event Completed!', 'wp-ec') . '</span>';
     }    
 
     return $timeleft;

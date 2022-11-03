@@ -33,6 +33,9 @@ get_header(); ?>
 			<?php while ($wp_query->have_posts()) :  $wp_query->the_post() ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+					<div role="Countdown Timer" class="countdown" data-timestamp="<?php echo strtotime( get_post_meta($post->ID, 'event_time', true) ); ?>">
+						<?php esc_html_e('Event Countdown ..'); ?>
+					</div>					
 					<div class="entry-content"><?php the_content(); ?></div>
 					<div class="event-item-meta">
 						<span class="event-item-meta-fragment">

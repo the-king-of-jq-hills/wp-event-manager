@@ -27,7 +27,8 @@ add_action( 'admin_enqueue_scripts', 'wp_ec_admin_scripts' );
 
 //Enque Template Style
 function wp_ec_events_style() {
-    wp_enqueue_style( 'mytheme-options-style', plugin_dir_url( __FILE__ ).'/assets/wpec-events.css', array(), WPEC_VERSION ); 
+    wp_enqueue_script('wp-ec-front-script', plugin_dir_url( __FILE__ ).'/assets/wpec-events.js', array('jquery'), WPEC_VERSION );
+    wp_enqueue_style( 'wp-ec-front-style', plugin_dir_url( __FILE__ ).'/assets/wpec-events.css', array(), WPEC_VERSION ); 
 }
 add_action( 'wp_enqueue_scripts', 'wp_ec_events_style' );
 
