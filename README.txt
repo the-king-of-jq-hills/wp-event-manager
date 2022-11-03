@@ -15,6 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 - Custom REST Route for events
 - Event single template
 - Events archive template with custom loop to sort events by time-stamp
+- JS/JQuery Countdown counter on archive page listings
 
 Custom CLI command to import event data - wp importevents
 Custom REST route - http://yoursite.com/wp-json/wpevents/v1/events
